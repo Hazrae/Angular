@@ -1,0 +1,42 @@
+<h3>Ajout d'un utilisateur</h3>
+
+<form [formGroup] = "userForm" (ngSubmit)="onSubmitForm()">
+<table>
+      <tr>
+            <td> <label>Login :</label></td>
+            <td> <input nbInput id="login" formControlName="login"></td>
+            <div *ngIf="submited && f.login.errors">
+                  <div *ngIf="submited && f.login.errors.required" style="color: red;">Le login est requis</div>
+            </div>
+          
+      </tr>
+      <tr>
+            <td> <label>Password :</label></td>
+            <td><input nbInput id="password" type="password" formControlName="password"></td>
+            <div *ngIf="submited && f.password.errors">
+                  <div *ngIf="submited && f.password.errors.required" style="color: red;">Le password est requis</div>
+            </div>
+
+      </tr>
+      <tr>
+            <td> <label>Email :</label></td>
+            <td> <input nbInput id="mail" formControlName="mail"></td>
+            <div *ngIf="submited && f.mail.errors">
+                  <div *ngIf="f.mail.errors.required" style="color: red;">Le mail est requis</div>
+                  <div *ngIf="f.mail.errors.email" style="color: red;">Veuillez entrer un mail au format correct</div>
+            </div>
+      </tr>
+      <tr>
+            <td><label>Date de Naissance :</label></td>
+            <td><input nbInput id="birthdate" type="date" formControlName="birthdate"></td>
+            <div *ngIf="submited && f.birthdate.errors">
+                  <div *ngIf="submited && f.birthdate.errors.required" style="color: red;">La date de naissance est requise</div>
+            </div>
+      </tr>
+      <br>
+      <tr>
+            <td><button nbButton type="submit">Valider</button></td>
+            <td><button nbButton type="reset" (click)="onResetForm()">Reinitialiser</button></td>
+      </tr>
+</table>
+</form>
